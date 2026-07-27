@@ -480,26 +480,15 @@ button:active {
 
 
 
-/* ==========================
-   SETTINGS BUTTON
-========================== */
-
-
 /* =====================================
-   FLOATING SETTINGS BUTTON
+   SETTINGS BUTTON - MESSAGE BAR RIGHT
 ===================================== */
 
 .settings-btn {
 
-    position:fixed;
+    width:45px;
 
-    bottom:25px;
-
-    left:25px;
-
-    width:55px;
-
-    height:55px;
+    height:45px;
 
     border-radius:50%;
 
@@ -507,7 +496,7 @@ button:active {
 
     color:white;
 
-    font-size:24px;
+    font-size:22px;
 
     display:flex;
 
@@ -515,10 +504,9 @@ button:active {
 
     align-items:center;
 
-    z-index:2000;
+    margin-left:5px;
 
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.25);
+    flex-shrink:0;
 
 }
 
