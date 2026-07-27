@@ -9,7 +9,9 @@
 
 <title>ChatMe</title>
 
+
 <link rel="stylesheet" href="/static/style.css">
+
 
 </head>
 
@@ -47,6 +49,7 @@ Connect with friends instantly
 
 
 
+
 <div class="input-group">
 
 <label>
@@ -60,6 +63,7 @@ placeholder="Username (register only)"
 >
 
 </div>
+
 
 
 
@@ -81,6 +85,7 @@ placeholder="Phone number"
 
 
 
+
 <div class="input-group">
 
 <label>
@@ -98,6 +103,7 @@ placeholder="Password"
 
 
 
+
 <div class="auth-buttons">
 
 
@@ -111,6 +117,7 @@ Create Account
 
 
 
+
 <button
 class="secondary-btn"
 onclick="login()">
@@ -120,7 +127,9 @@ Login
 </button>
 
 
+
 </div>
+
 
 
 
@@ -136,6 +145,15 @@ class="auth-message">
 
 
 </section>
+
+
+
+
+
+
+
+
+
 <!-- =========================
 CHAT PAGE
 ========================= -->
@@ -146,12 +164,13 @@ class="chat-container hidden">
 
 
 
+
+
 <header class="top-bar">
 
 
 
 <div class="profile-area">
-
 
 <div class="avatar">
 
@@ -163,50 +182,53 @@ alt="Profile">
 </div>
 
 
-
 <div class="profile-info">
-
 
 <h2>
 ChatMe
 </h2>
-
 
 <span id="status">
 Offline
 </span>
 
 
-</div>
+<button 
+class="settings-btn"
+onclick="openSettings()">
+
+⚙️ Settings
+
+</button>
 
 
 </div>
+
+</div>
+
+
+
 
 
 
 
 <div class="top-actions">
 
-
 <button onclick="startAudioCall()" title="Audio Call">
 📞
 </button>
-
 
 <button onclick="startVideoCall()" title="Video Call">
 📹
 </button>
 
-
 <button onclick="createGroupCall()" title="Group Call">
 👥
 </button>
 
-
 <button onclick="toggleTheme()" title="Dark Mode">
 🌙
 </button>
-
 
 </div>
 
@@ -219,8 +241,10 @@ Offline
 
 
 
-<div class="chat-layout">
 
+
+
+<div class="chat-layout">
 
 
 
@@ -230,7 +254,6 @@ Offline
 
 
 <aside class="sidebar">
-
 
 
 <div class="search-box">
@@ -270,7 +293,6 @@ Contacts
 
 
 
-
 <div id="contacts">
 
 
@@ -285,11 +307,22 @@ Contacts
 
 
 
-
 </aside>
+
+
+
+
+
+
+
+
+
 <!-- CHAT AREA -->
 
+
 <main class="chat-window">
+
+
 
 
 
@@ -309,9 +342,7 @@ Select User
 
 </span>
 
-
 </div>
-
 
 
 
@@ -322,7 +353,6 @@ Select User
 </span>
 
 
-
 </div>
 
 
@@ -330,8 +360,6 @@ Select User
 
 
 
-
-<!-- MESSAGE DISPLAY AREA -->
 
 
 <div class="message-area">
@@ -343,6 +371,8 @@ Select User
 
 
 </div>
+
+
 
 
 
@@ -364,7 +394,6 @@ class="call-area hidden">
 id="localVideo"
 autoplay
 muted>
-
 </video>
 
 
@@ -385,7 +414,6 @@ You
 <video
 id="remoteVideo"
 autoplay>
-
 </video>
 
 
@@ -406,10 +434,14 @@ Remote
 
 
 
-<!-- MESSAGE INPUT BAR -->
+
+
+<!-- MESSAGE INPUT -->
 
 
 <div class="message-input-area">
+
+
 
 
 
@@ -417,14 +449,19 @@ Remote
 
 📎
 
+
 <input
 id="file"
 type="file"
 hidden
 accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
-onchange="uploadFile()">
+onchange="uploadFile()"
+>
+
 
 </label>
+
+
 
 
 
@@ -443,6 +480,7 @@ onclick="toggleEmoji()">
 
 
 
+
 <input
 id="message"
 type="text"
@@ -450,18 +488,6 @@ placeholder="Type a message..."
 onkeypress="enterSend(event)"
 >
 
-
-
-
-
-
-<button
-class="settings-btn"
-onclick="openSettings()">
-
-⚙️
-
-</button>
 
 
 
@@ -479,6 +505,15 @@ onclick="sendMessage()">
 
 
 </div>
+
+
+
+
+
+
+
+
+
 <!-- EMOJI PANEL -->
 
 
@@ -516,7 +551,11 @@ class="emoji-panel hidden">
 </button>
 
 
+
 </div>
+
+
+
 
 
 
@@ -536,11 +575,15 @@ class="file-preview hidden">
 
 
 
+
+
+
 <!-- GROUP CALL MODAL -->
 
 
 <div id="group-call-modal"
 class="modal hidden">
+
 
 
 <div class="modal-card">
@@ -549,7 +592,6 @@ class="modal hidden">
 <h3>
 Group Call
 </h3>
-
 
 
 
@@ -562,11 +604,13 @@ placeholder="Room ID"
 
 
 
+
 <button onclick="joinGroupCall()">
 
 Join Room
 
 </button>
+
 
 
 
@@ -590,10 +634,13 @@ Close
 
 
 
+
+
 </main>
 
 
 </div>
+
 
 
 
@@ -604,433 +651,385 @@ Close
 
 
 
-
-
-
 <!-- =====================================
 SETTINGS PANEL
 ===================================== -->
 
-<div id="settings-panel" class="settings-panel hidden">
+<div id="settings-panel"
+class="settings-panel hidden">
 
+<div class="settings-header">
 
-    <div class="settings-header">
+<h2>
+Settings
+</h2>
 
-        <h2>
-            Settings
-        </h2>
-
-
-        <button onclick="closeSettings()">
-            ✖
-        </button>
-
-    </div>
-
-
-
-    <div class="settings-profile">
-
-        <img
-        id="settings-avatar"
-        src="/static/default-avatar.png">
-
-
-        <h3 id="settings-name">
-            Username
-        </h3>
-
-
-        <p id="settings-bio">
-            No bio yet.
-        </p>
-
-
-
-        <label class="profile-upload">
-
-            📷 Change Profile Picture
-
-            <input
-            id="profile-upload"
-            type="file"
-            accept="image/*"
-            hidden
-            onchange="uploadProfilePicture()">
-
-        </label>
-
-
-    </div>
-
-
-
-
-    <div class="settings-list">
-
-
-        <button onclick="openProfileSettings()">
-            👤 Profile
-        </button>
-
-
-
-        <button onclick="openPrivacySettings()">
-            🔒 Privacy
-        </button>
-
-
-
-        <button onclick="openNotificationSettings()">
-            🔔 Notifications
-        </button>
-
-
-
-        <button onclick="openAppearanceSettings()">
-            🌙 Appearance
-        </button>
-
-
-
-        <button onclick="openStorageSettings()">
-            ☁ Storage
-        </button>
-
-
-
-        <button onclick="openAccountSettings()">
-            🔑 Account
-        </button>
-
-
-
-        <button onclick="logout()">
-            🚪 Logout
-        </button>
-
-
-    </div>
-
+<button onclick="closeSettings()">
+✖
+</button>
 
 </div>
 
 
+<!-- PROFILE -->
 
-<!-- =====================================
-PROFILE PAGE
-===================================== -->
-
-<div id="profile-page"
-class="settings-page hidden">
-
-
-<h2>
-👤 My Profile
-</h2>
-
+<div class="settings-profile">
 
 <img
-id="edit-avatar"
-src="/static/default-avatar.png"
-class="edit-profile-image">
+id="settings-avatar"
+src="/static/default-avatar.png">
 
-
-
-<label>
+<h3 id="settings-name">
 Username
-</label>
+</h3>
 
+<p id="settings-bio">
+No bio yet.
+</p>
+
+<label
+class="profile-upload">
+
+📷 Change Profile Picture
 
 <input
-id="edit-username"
-type="text">
 
+id="profile-upload"
 
+type="file"
 
-<label>
-Bio
+accept="image/*"
+
+hidden
+
+onchange="uploadProfilePicture()">
+
 </label>
 
+</div>
+
+
+<div class="settings-list">
+
+<button onclick="openProfileSettings()">
+👤 Profile
+</button>
+
+<button onclick="openPrivacySettings()">
+🔒 Privacy
+</button>
+
+<button onclick="openNotificationSettings()">
+🔔 Notifications
+</button>
+
+<button onclick="openAppearanceSettings()">
+🌙 Appearance
+</button>
+
+<button onclick="openStorageSettings()">
+☁ Storage
+</button>
+
+<button onclick="openAccountSettings()">
+🔑 Account
+</button>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
+
+</div>
+
+</div>
+<div
+id="profile-page"
+class="settings-page hidden">
+
+<h2>
+
+My Profile
+
+</h2>
+
+<div class="profile-section">
+
+<img
+
+id="edit-avatar"
+
+src="/static/default-avatar.png">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Username
+
+</label>
+
+<input
+
+id="edit-username"
+
+type="text">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Bio
+
+</label>
 
 <textarea
+
 id="edit-bio"
-rows="4"
-placeholder="Write your bio">
+
+rows="4">
 
 </textarea>
 
+</div>
 
+<button
+class="primary-btn"
+onclick="saveProfile()">
 
-<button onclick="saveProfile()">
-
-Save Profile
+Save Changes
 
 </button>
 
-
 </div>
-
-
-
-
-
-<!-- =====================================
-PRIVACY PAGE
-===================================== -->
-
-
-<div id="privacy-page"
+ <div
+id="privacy-page"
 class="settings-page hidden">
 
-
 <h2>
-🔒 Privacy
+
+Privacy
+
 </h2>
 
-
-
 <label>
-Last Seen
-</label>
 
+Last Seen
+
+</label>
 
 <select id="last-seen">
 
 <option>Everyone</option>
+
 <option>Contacts</option>
+
 <option>Nobody</option>
 
 </select>
 
-
-
 <label>
-Online Status
-</label>
 
+Online Status
+
+</label>
 
 <select id="online-status">
 
 <option>Everyone</option>
+
 <option>Contacts</option>
+
 <option>Nobody</option>
 
 </select>
 
-
-
 <label>
-Profile Picture
-</label>
 
+Profile Picture
+
+</label>
 
 <select id="profile-privacy">
 
 <option>Everyone</option>
+
 <option>Contacts</option>
+
 <option>Nobody</option>
 
 </select>
 
-
-
 <label>
-Read Receipts
-</label>
 
+Read Receipts
+
+</label>
 
 <input
 id="read-receipts"
 type="checkbox"
 checked>
 
-
-
 <label>
-Typing Indicator
-</label>
 
+Typing Indicator
+
+</label>
 
 <input
 id="typing-status"
 type="checkbox"
 checked>
 
+<button
+class="primary-btn"
+onclick="savePrivacy()">
 
-
-<button onclick="savePrivacy()">
-
-Save Privacy
+Save
 
 </button>
 
-
-</div>
-
-
-
-
-
-<!-- =====================================
-NOTIFICATION PAGE
-===================================== -->
-
-
-<div id="notification-page"
+</div> 
+<div
+id="notification-page"
 class="settings-page hidden">
 
-
 <h2>
-🔔 Notifications
+
+Notifications
+
 </h2>
 
-
-
 <label>
-Message Notifications
-</label>
 
+Message Notifications
+
+</label>
 
 <input
 id="message-notifications"
 type="checkbox"
 checked>
 
-
-
 <label>
-Call Notifications
-</label>
 
+Call Notifications
+
+</label>
 
 <input
 id="call-notifications"
 type="checkbox"
 checked>
 
-
-
 <label>
-Group Notifications
-</label>
 
+Group Notifications
+
+</label>
 
 <input
 id="group-notifications"
 type="checkbox"
 checked>
 
+<button
+class="primary-btn"
+onclick="saveNotifications()">
 
-
-<button onclick="saveNotifications()">
-
-Save Notifications
+Save
 
 </button>
 
-
 </div>
-
-
-
-
-
-<!-- =====================================
-APPEARANCE PAGE
-===================================== -->
-
-
-<div id="appearance-page"
+<div
+id="appearance-page"
 class="settings-page hidden">
 
-
 <h2>
-🌙 Appearance
+
+Appearance
+
 </h2>
 
-
-
 <label>
-Dark Mode
-</label>
 
+Dark Mode
+
+</label>
 
 <input
 id="dark-mode"
 type="checkbox">
 
-
-
 <label>
+
 Chat Wallpaper
+
 </label>
 
-
 <input
+
 id="wallpaper"
+
 type="file"
+
 accept="image/*">
 
+<button
+class="primary-btn"
+onclick="saveAppearance()">
 
-
-<button onclick="saveAppearance()">
-
-Save Appearance
+Save
 
 </button>
 
-
 </div>
 
-
-
-
-
-<!-- =====================================
-ACCOUNT PAGE
-===================================== -->
-
-
-<div id="account-page"
+ <div
+id="account-page"
 class="settings-page hidden">
 
-
 <h2>
-🔑 Account
+
+Account
+
 </h2>
-
-
 
 <button onclick="changePassword()">
 
-Change Password
+🔑 Change Password
 
 </button>
-
-
 
 <button onclick="exportData()">
 
-Export Data
+📁 Export Data
 
 </button>
-
-
 
 <button onclick="deleteAccount()">
 
-Delete Account
+🗑 Delete Account
 
 </button>
-
-
 
 <button onclick="logout()">
 
-Logout
+🚪 Logout
 
 </button>
 
-
 </div>
+ 
+<script src="/static/app.js"></script>
+
+
+</body>
+
+
+</html>
