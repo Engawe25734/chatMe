@@ -2061,18 +2061,18 @@ body.dark .modal-card {
 
 #edit-avatar{
 
-    width:120px;
-
-    height:120px;
-
+   .avatar{
+    width:50px;
+    height:50px;
     border-radius:50%;
-
-    object-fit:cover;
-
-    display:block;
-
-    margin:auto;
-
+    background:#128c7e;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+    color:white;
+    overflow:hidden;
+}
 }
 
 
@@ -2212,15 +2212,19 @@ body.dark-mode select{
 }
 
 .top-bar{
+    height:75px;
+    background:#075e54;
+    color:white;
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
+    align-items:center;
+    padding:15px 25px;
 }
 
 
 .profile-area{
     display:flex;
-    align-items:flex-start;
+    align-items:center;
     gap:15px;
 }
 
