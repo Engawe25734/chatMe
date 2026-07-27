@@ -611,192 +611,130 @@ Close
 SETTINGS PANEL
 ===================================== -->
 
-
-<div id="settings-panel"
-class="settings-panel hidden">
+<div id="settings-panel" class="settings-panel hidden">
 
 
+    <div class="settings-header">
 
-<div class="settings-header">
-
-
-<h2>
-Settings
-</h2>
+        <h2>
+            Settings
+        </h2>
 
 
+        <button onclick="closeSettings()">
+            ✖
+        </button>
 
-<button onclick="closeSettings()">
+    </div>
 
-✖
 
-</button>
+
+    <div class="settings-profile">
+
+        <img
+        id="settings-avatar"
+        src="/static/default-avatar.png">
+
+
+        <h3 id="settings-name">
+            Username
+        </h3>
+
+
+        <p id="settings-bio">
+            No bio yet.
+        </p>
+
+
+
+        <label class="profile-upload">
+
+            📷 Change Profile Picture
+
+            <input
+            id="profile-upload"
+            type="file"
+            accept="image/*"
+            hidden
+            onchange="uploadProfilePicture()">
+
+        </label>
+
+
+    </div>
+
+
+
+
+    <div class="settings-list">
+
+
+        <button onclick="openProfileSettings()">
+            👤 Profile
+        </button>
+
+
+
+        <button onclick="openPrivacySettings()">
+            🔒 Privacy
+        </button>
+
+
+
+        <button onclick="openNotificationSettings()">
+            🔔 Notifications
+        </button>
+
+
+
+        <button onclick="openAppearanceSettings()">
+            🌙 Appearance
+        </button>
+
+
+
+        <button onclick="openStorageSettings()">
+            ☁ Storage
+        </button>
+
+
+
+        <button onclick="openAccountSettings()">
+            🔑 Account
+        </button>
+
+
+
+        <button onclick="logout()">
+            🚪 Logout
+        </button>
+
+
+    </div>
 
 
 </div>
 
 
 
-
-
-
-
-<!-- PROFILE -->
-
-
-<div class="settings-profile">
-
-
-
-<img
-id="settings-avatar"
-src="/static/default-avatar.png">
-
-
-
-<h3 id="settings-name">
-
-Username
-
-</h3>
-
-
-
-<p id="settings-bio">
-
-No bio yet.
-
-</p>
-
-
-
-
-<label class="profile-upload">
-
-
-📷 Change Profile Picture
-
-
-
-<input
-
-id="profile-upload"
-
-type="file"
-
-accept="image/*"
-
-hidden
-
-onchange="uploadProfilePicture()">
-
-
-</label>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="settings-list">
-
-
-<button onclick="openProfileSettings()">
-
-👤 Profile
-
-</button>
-
-
-
-<button onclick="openPrivacySettings()">
-
-🔒 Privacy
-
-</button>
-
-
-
-<button onclick="openNotificationSettings()">
-
-🔔 Notifications
-
-</button>
-
-
-
-<button onclick="openAppearanceSettings()">
-
-🌙 Appearance
-
-</button>
-
-
-
-<button onclick="openStorageSettings()">
-
-☁ Storage
-
-</button>
-
-
-
-<button onclick="openAccountSettings()">
-
-🔑 Account
-
-</button>
-
-
-
-<button onclick="logout()">
-
-🚪 Logout
-
-</button>
-
-
-
-</div>
-
-
-
-</div>
-<!-- PROFILE SETTINGS PAGE -->
-
-
-<div
-id="profile-page"
+<!-- =====================================
+PROFILE PAGE
+===================================== -->
+
+<div id="profile-page"
 class="settings-page hidden">
 
 
 <h2>
-My Profile
+👤 My Profile
 </h2>
-
-
-
-
-<div class="profile-section">
 
 
 <img
 id="edit-avatar"
-src="/static/default-avatar.png">
+src="/static/default-avatar.png"
+class="edit-profile-image">
 
-
-</div>
-
-
-
-
-
-<div class="input-group">
 
 
 <label>
@@ -809,14 +747,6 @@ id="edit-username"
 type="text">
 
 
-</div>
-
-
-
-
-
-<div class="input-group">
-
 
 <label>
 Bio
@@ -825,22 +755,16 @@ Bio
 
 <textarea
 id="edit-bio"
-rows="4">
+rows="4"
+placeholder="Write your bio">
 
 </textarea>
 
 
-</div>
 
+<button onclick="saveProfile()">
 
-
-
-
-<button
-class="primary-btn"
-onclick="saveProfile()">
-
-Save Changes
+Save Profile
 
 </button>
 
@@ -851,18 +775,17 @@ Save Changes
 
 
 
+<!-- =====================================
+PRIVACY PAGE
+===================================== -->
 
 
-<!-- PRIVACY PAGE -->
-
-
-<div
-id="privacy-page"
+<div id="privacy-page"
 class="settings-page hidden">
 
 
 <h2>
-Privacy
+🔒 Privacy
 </h2>
 
 
@@ -874,25 +797,11 @@ Last Seen
 
 <select id="last-seen">
 
-
-<option>
-Everyone
-</option>
-
-
-<option>
-Contacts
-</option>
-
-
-<option>
-Nobody
-</option>
-
+<option>Everyone</option>
+<option>Contacts</option>
+<option>Nobody</option>
 
 </select>
-
-
 
 
 
@@ -903,26 +812,11 @@ Online Status
 
 <select id="online-status">
 
-
-<option>
-Everyone
-</option>
-
-
-<option>
-Contacts
-</option>
-
-
-<option>
-Nobody
-</option>
-
+<option>Everyone</option>
+<option>Contacts</option>
+<option>Nobody</option>
 
 </select>
-
-
-
 
 
 
@@ -933,26 +827,11 @@ Profile Picture
 
 <select id="profile-privacy">
 
-
-<option>
-Everyone
-</option>
-
-
-<option>
-Contacts
-</option>
-
-
-<option>
-Nobody
-</option>
-
+<option>Everyone</option>
+<option>Contacts</option>
+<option>Nobody</option>
 
 </select>
-
-
-
 
 
 
@@ -968,8 +847,6 @@ checked>
 
 
 
-
-
 <label>
 Typing Indicator
 </label>
@@ -982,16 +859,11 @@ checked>
 
 
 
+<button onclick="savePrivacy()">
 
-
-<button
-class="primary-btn"
-onclick="savePrivacy()">
-
-Save
+Save Privacy
 
 </button>
-
 
 
 </div>
@@ -1000,20 +872,18 @@ Save
 
 
 
+<!-- =====================================
+NOTIFICATION PAGE
+===================================== -->
 
 
-<!-- NOTIFICATION PAGE -->
-
-
-<div
-id="notification-page"
+<div id="notification-page"
 class="settings-page hidden">
 
 
 <h2>
-Notifications
+🔔 Notifications
 </h2>
-
 
 
 
@@ -1029,7 +899,6 @@ checked>
 
 
 
-
 <label>
 Call Notifications
 </label>
@@ -1039,8 +908,6 @@ Call Notifications
 id="call-notifications"
 type="checkbox"
 checked>
-
-
 
 
 
@@ -1056,13 +923,9 @@ checked>
 
 
 
+<button onclick="saveNotifications()">
 
-
-<button
-class="primary-btn"
-onclick="saveNotifications()">
-
-Save
+Save Notifications
 
 </button>
 
@@ -1073,20 +936,18 @@ Save
 
 
 
+<!-- =====================================
+APPEARANCE PAGE
+===================================== -->
 
 
-<!-- APPEARANCE PAGE -->
-
-
-<div
-id="appearance-page"
+<div id="appearance-page"
 class="settings-page hidden">
 
 
 <h2>
-Appearance
+🌙 Appearance
 </h2>
-
 
 
 
@@ -1098,8 +959,6 @@ Dark Mode
 <input
 id="dark-mode"
 type="checkbox">
-
-
 
 
 
@@ -1115,13 +974,9 @@ accept="image/*">
 
 
 
+<button onclick="saveAppearance()">
 
-
-<button
-class="primary-btn"
-onclick="saveAppearance()">
-
-Save
+Save Appearance
 
 </button>
 
@@ -1132,71 +987,50 @@ Save
 
 
 
+<!-- =====================================
+ACCOUNT PAGE
+===================================== -->
 
 
-
-<!-- ACCOUNT PAGE -->
-
-
-<div
-id="account-page"
+<div id="account-page"
 class="settings-page hidden">
 
 
 <h2>
-Account
+🔑 Account
 </h2>
-
 
 
 
 <button onclick="changePassword()">
 
-🔑 Change Password
+Change Password
 
 </button>
-
 
 
 
 <button onclick="exportData()">
 
-📁 Export Data
+Export Data
 
 </button>
-
 
 
 
 <button onclick="deleteAccount()">
 
-🗑 Delete Account
+Delete Account
 
 </button>
-
 
 
 
 <button onclick="logout()">
 
-🚪 Logout
+Logout
 
 </button>
 
 
 </div>
-
-
-
-
-
-
-
-
-<script src="/static/app.js"></script>
-
-
-</body>
-
-
-</html>
