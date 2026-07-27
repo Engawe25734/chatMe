@@ -8,28 +8,38 @@ Modern WhatsApp Inspired UI
    RESET
 ========================== */
 
+
 * {
 
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
     font-family:'Inter', Arial, sans-serif;
 
 }
 
 
+
+
 body {
 
     height:100vh;
+
     background:#dfe7e5;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     overflow:hidden;
 
 }
+
 
 
 
@@ -45,13 +55,17 @@ body {
 }
 
 
+
 button {
 
     border:none;
+
     cursor:pointer;
+
     transition:.3s;
 
 }
+
 
 
 button:hover {
@@ -61,11 +75,14 @@ button:hover {
 }
 
 
+
 button:active {
 
     transform:scale(.95);
 
 }
+
+
 
 
 
@@ -77,14 +94,18 @@ button:active {
 .app-container {
 
     width:100%;
+
     height:100vh;
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
 }
+
+
 
 
 
@@ -96,14 +117,18 @@ button:active {
 .auth-container {
 
     width:100%;
+
     height:100%;
 
     display:flex;
 
     justify-content:center;
+
     align-items:center;
 
 }
+
+
 
 
 
@@ -119,12 +144,14 @@ button:active {
     border-radius:25px;
 
     box-shadow:
+
     0 15px 40px rgba(0,0,0,.15);
 
     text-align:center;
 
 
 }
+
 
 
 
@@ -158,6 +185,7 @@ button:active {
 
 
 
+
 .auth-card h1 {
 
 
@@ -167,6 +195,8 @@ button:active {
 
 
 }
+
+
 
 
 
@@ -182,6 +212,7 @@ button:active {
 
 
 
+
 /* ==========================
    INPUTS
 ========================== */
@@ -189,25 +220,23 @@ button:active {
 
 .input-group {
 
-
     text-align:left;
 
     margin-bottom:15px;
 
-
 }
+
 
 
 
 .input-group label {
 
-
     font-size:13px;
 
     color:#555;
 
-
 }
+
 
 
 
@@ -233,6 +262,7 @@ button:active {
 
 
 
+
 .input-group input:focus {
 
 
@@ -240,6 +270,7 @@ button:active {
 
 
 }
+
 
 
 
@@ -262,6 +293,7 @@ button:active {
 
 
 
+
 .primary-btn {
 
 
@@ -280,6 +312,7 @@ button:active {
 
 
 
+
 .secondary-btn {
 
 
@@ -295,6 +328,7 @@ button:active {
 
 
 }
+
 
 
 
@@ -333,9 +367,14 @@ button:active {
     flex-direction:column;
 
     box-shadow:
+
     0 20px 50px rgba(0,0,0,.25);
 
 }
+
+
+
+
 
 
 
@@ -345,6 +384,7 @@ button:active {
 
 
 .top-bar {
+
 
     height:75px;
 
@@ -360,11 +400,16 @@ button:active {
 
     padding:15px 25px;
 
+
 }
 
 
 
+
+
+
 .profile-area {
+
 
     display:flex;
 
@@ -372,39 +417,32 @@ button:active {
 
     gap:15px;
 
+
 }
+
+
+
 
 
 
 .profile-info {
 
+
     display:flex;
 
     flex-direction:column;
 
-}
-
-
-
-.profile-area h2 {
-
-    font-size:20px;
 
 }
 
 
 
-#status {
 
-    font-size:13px;
-
-    color:#c8f7c5;
-
-}
 
 
 
 .avatar {
+
 
     width:50px;
 
@@ -426,11 +464,17 @@ button:active {
 
     overflow:hidden;
 
+
 }
 
 
 
+
+
+
+
 .avatar img {
+
 
     width:100%;
 
@@ -438,16 +482,50 @@ button:active {
 
     object-fit:cover;
 
+
 }
 
 
 
+
+
+
+.profile-area h2 {
+
+
+    font-size:20px;
+
+
+}
+
+
+
+
+
+
+#status {
+
+
+    font-size:13px;
+
+    color:#c8f7c5;
+
+
+}
+
+
+
+
+
+
+
 /* ==========================
-   TOP ACTION BUTTONS
+   TOP ACTIONS
 ========================== */
 
 
 .top-actions {
+
 
     display:flex;
 
@@ -457,7 +535,11 @@ button:active {
 
     align-items:center;
 
+
 }
+
+
+
 
 
 
@@ -476,46 +558,12 @@ button:active {
 
     font-size:18px;
 
-}
-
-
-
-/* =====================================
-   SETTINGS BUTTON - MESSAGE BAR RIGHT
-===================================== */
-
-.settings-btn {
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    background:#128c7e;
-
-    color:white;
-
-    font-size:22px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    margin-left:5px;
-
-    flex-shrink:0;
 
 }
 
 
-.settings-btn:hover {
 
-    background:#075e54;
 
-}
 
 
 
@@ -535,6 +583,10 @@ button:active {
 
 
 }
+
+
+
+
 
 
 
@@ -559,6 +611,9 @@ button:active {
 
 
 
+
+
+
 .search-box input {
 
 
@@ -574,6 +629,9 @@ button:active {
 
 
 }
+
+
+
 
 
 
@@ -597,6 +655,9 @@ button:active {
 
 
 
+
+
+
 .contact-title {
 
 
@@ -608,6 +669,9 @@ button:active {
 
 
 }
+
+
+
 
 
 
@@ -631,6 +695,9 @@ button:active {
 
 
 
+
+
+
 .contact-item:hover {
 
 
@@ -638,12 +705,21 @@ button:active {
 
 
 }
+
+
+
+
+
+
+
+
 /* ==========================
    CHAT WINDOW
 ========================== */
 
 
 .chat-window {
+
 
     flex:1;
 
@@ -655,7 +731,12 @@ button:active {
 
     animation:fade .3s;
 
+
 }
+
+
+
+
 
 
 
@@ -687,6 +768,10 @@ button:active {
 
 
 
+
+
+
+
 .conversation-header h3 {
 
 
@@ -694,6 +779,10 @@ button:active {
 
 
 }
+
+
+
+
 
 
 
@@ -709,25 +798,6 @@ button:active {
 
 
 
-.conversation-actions button {
-
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:50%;
-
-    background:#128c7e;
-
-    color:white;
-
-    font-size:17px;
-
-    margin-left:5px;
-
-
-}
 
 
 
@@ -751,6 +821,9 @@ button:active {
 
 
 
+
+
+
 #messages {
 
 
@@ -758,6 +831,9 @@ button:active {
 
 
 }
+
+
+
 
 
 
@@ -785,6 +861,10 @@ button:active {
 
 
 
+
+
+
+
 #messages li b {
 
 
@@ -792,6 +872,10 @@ button:active {
 
 
 }
+
+
+
+
 
 
 
@@ -817,12 +901,8 @@ button:active {
 
 
 }
-
-
-
-
 /* ==========================
-   MESSAGE INPUT
+   MESSAGE INPUT BAR
 ========================== */
 
 
@@ -846,10 +926,14 @@ button:active {
 
 
 
+
+
 .message-input-area input {
 
 
     flex:1;
+
+    min-width:0;
 
     padding:14px 20px;
 
@@ -864,6 +948,9 @@ button:active {
 
 
 
+
+
+
 .message-input-area input:focus {
 
 
@@ -874,6 +961,33 @@ button:active {
 
 
 
+
+
+/* ATTACH BUTTON */
+
+
+.attach-btn {
+
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+
+}
+
+
+
+
+
+
+/* EMOJI BUTTON */
+
+
 .emoji-btn {
 
 
@@ -881,9 +995,61 @@ button:active {
 
     font-size:25px;
 
+}
+
+
+
+
+
+
+
+/* SETTINGS BUTTON IN MESSAGE BAR */
+
+
+.settings-btn {
+
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#128c7e;
+
+    color:white;
+
+    font-size:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
 
 }
 
+
+
+
+
+.settings-btn:hover {
+
+
+    background:#075e54;
+
+
+}
+
+
+
+
+
+
+/* SEND BUTTON */
 
 
 .send-btn {
@@ -903,6 +1069,9 @@ button:active {
 
 
 }
+
+
+
 
 
 
@@ -931,6 +1100,8 @@ button:active {
 
 
 
+
+
 .emoji-panel button {
 
 
@@ -944,25 +1115,21 @@ button:active {
 
 
 
+
+
+
+
 /* ==========================
-   FILE UPLOAD
+   FILE PREVIEW
 ========================== */
 
 
-.file-upload {
+.file-preview {
 
 
     background:white;
 
     padding:10px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
 
     border-top:1px solid #ddd;
 
@@ -971,35 +1138,6 @@ button:active {
 
 
 
-.file-upload input {
-
-
-    max-width:200px;
-
-    padding:8px;
-
-    border-radius:20px;
-
-    background:#f5f5f5;
-
-
-}
-
-
-
-.file-upload button {
-
-
-    background:#075e54;
-
-    color:white;
-
-    padding:10px 20px;
-
-    border-radius:20px;
-
-
-}
 
 
 
@@ -1026,6 +1164,8 @@ button:active {
 
 
 
+
+
 #messages video {
 
 
@@ -1042,6 +1182,8 @@ button:active {
 
 
 
+
+
 #messages audio {
 
 
@@ -1051,6 +1193,8 @@ button:active {
 
 
 }
+
+
 
 
 
@@ -1068,6 +1212,9 @@ button:active {
 
 
 
+
+
+
 #messages a:hover {
 
 
@@ -1075,6 +1222,14 @@ button:active {
 
 
 }
+
+
+
+
+
+
+
+
 /* ==========================
    VIDEO CALL AREA
 ========================== */
@@ -1111,6 +1266,8 @@ button:active {
 
 
 
+
+
 .video-box {
 
 
@@ -1129,6 +1286,9 @@ button:active {
 
 
 
+
+
+
 .video-box video {
 
 
@@ -1140,6 +1300,8 @@ button:active {
 
 
 }
+
+
 
 
 
@@ -1158,6 +1320,10 @@ button:active {
 
 
 }
+
+
+
+
 
 
 
@@ -1196,6 +1362,7 @@ button:active {
 
 
 
+
 .modal-card {
 
 
@@ -1214,6 +1381,9 @@ button:active {
 
 
 
+
+
+
 .modal-card h3 {
 
 
@@ -1223,6 +1393,8 @@ button:active {
 
 
 }
+
+
 
 
 
@@ -1246,6 +1418,7 @@ button:active {
 
 
 
+
 .modal-card button {
 
 
@@ -1263,291 +1436,40 @@ button:active {
 
 
 }
-
-
-
-
-/* ==========================
-   DARK MODE
-========================== */
-
-
-body.dark {
-
-
-    background:#111;
-
-
-}
-
-
-
-
-body.dark .chat-container {
-
-
-    background:#222;
-
-
-}
-
-
-
-body.dark .sidebar {
-
-
-    background:#181818;
-
-    color:white;
-
-
-}
-
-
-
-
-body.dark .chat-window {
-
-
-    background:#0b141a;
-
-
-}
-
-
-
-body.dark .conversation-header,
-
-body.dark .message-input-area,
-
-body.dark .file-upload,
-
-body.dark .emoji-panel {
-
-
-    background:#202c33;
-
-    color:white;
-
-
-}
-
-
-
-
-body.dark #messages li {
-
-
-    background:#202c33;
-
-    color:white;
-
-
-}
-
-
-
-
-body.dark input {
-
-
-    background:#333;
-
-    color:white;
-
-    border-color:#555;
-
-
-}
-
-
-
-
-
-body.dark .contact-item {
-
-
-    background:#202c33;
-
-    color:white;
-
-
-}
-
-
-
-
-
-body.dark .modal-card {
-
-
-    background:#202c33;
-
-    color:white;
-
-
-}
-
-
-
-
-
-/* ==========================
-   SETTINGS DARK MODE SUPPORT
-========================== */
-
-
-body.dark-mode {
-
-
-    background:#111;
-
-    color:white;
-
-
-}
-
-
-
-
-body.dark-mode .settings-panel,
-
-body.dark-mode .settings-page {
-
-
-    background:#1f1f1f;
-
-    color:white;
-
-
-}
-
-
-
-
-body.dark-mode .settings-list button {
-
-
-    background:#333;
-
-    color:white;
-
-
-}
-
-
-
-
-body.dark-mode input,
-
-body.dark-mode textarea,
-
-body.dark-mode select {
-
-
-    background:#333;
-
-    color:white;
-
-    border-color:#555;
-
-
-}
-
-
-
-
-
-/* ==========================
-   SCROLLBAR
-========================== */
-
-
-::-webkit-scrollbar {
-
-
-    width:8px;
-
-
-}
-
-
-
-::-webkit-scrollbar-thumb {
-
-
-    background:#128c7e;
-
-    border-radius:10px;
-
-
-}
-
-
-
-
-
-/* ==========================
-   ANIMATIONS
-========================== */
-
-
-@keyframes fade {
-
-
-    from {
-
-        opacity:0;
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-    }
-
-
-}
 /* =====================================
    SETTINGS PANEL
 ===================================== */
 
-
 .settings-panel {
 
-
     position:fixed;
-
     top:0;
-
-    right:0;
+    right:-350px;
 
     width:350px;
-
     height:100%;
 
     background:white;
 
     z-index:1000;
 
-    box-shadow:
-    -5px 0 20px rgba(0,0,0,.2);
+    box-shadow:-5px 0 20px rgba(0,0,0,.2);
 
     overflow-y:auto;
 
     transition:.3s;
 
+}
+
+
+.settings-panel.active {
+
+    right:0;
 
 }
 
 
-
-
-
 .settings-header {
-
 
     display:flex;
 
@@ -1559,25 +1481,17 @@ body.dark-mode select {
 
     border-bottom:1px solid #ddd;
 
-
 }
-
-
 
 
 .settings-header h2 {
 
-
     margin:0;
-
 
 }
 
 
-
-
 .settings-header button {
-
 
     background:none;
 
@@ -1585,9 +1499,7 @@ body.dark-mode select {
 
     cursor:pointer;
 
-
 }
-
 
 
 
@@ -1598,19 +1510,14 @@ body.dark-mode select {
 
 .settings-profile {
 
-
     text-align:center;
 
     padding:25px;
 
-
 }
 
 
-
-
 .settings-profile img {
-
 
     width:100px;
 
@@ -1622,38 +1529,28 @@ body.dark-mode select {
 
     border:3px solid #ddd;
 
-
 }
-
-
 
 
 .settings-profile h3 {
 
-
     margin-top:15px;
 
-    margin-bottom:5px;
-
-
 }
-
-
 
 
 .settings-profile p {
 
-
     color:#777;
-
 
 }
 
 
 
+/* PROFILE UPLOAD */
+
 
 .profile-upload {
-
 
     display:inline-block;
 
@@ -1669,9 +1566,7 @@ body.dark-mode select {
 
     cursor:pointer;
 
-
 }
-
 
 
 
@@ -1682,25 +1577,18 @@ body.dark-mode select {
 
 .settings-list {
 
-
     padding:15px;
-
 
 }
 
 
-
-
 .settings-list button {
-
 
     width:100%;
 
     padding:15px;
 
     margin-bottom:10px;
-
-    border:none;
 
     background:#f5f5f5;
 
@@ -1710,42 +1598,34 @@ body.dark-mode select {
 
     font-size:16px;
 
-    cursor:pointer;
-
-
 }
-
-
 
 
 .settings-list button:hover {
 
-
-    background:#e8e8e8;
-
+    background:#e5e5e5;
 
 }
 
 
 
-
 /* =====================================
-   SETTINGS PAGES
+   SETTINGS SUB PAGES
 ===================================== */
 
 
 .settings-page {
 
-
     position:fixed;
 
     top:0;
 
-    right:0;
+    right:-350px;
 
     width:350px;
 
     height:100%;
+
 
     background:white;
 
@@ -1755,25 +1635,27 @@ body.dark-mode select {
 
     overflow-y:auto;
 
+    transition:.3s;
 
 }
 
 
+
+.settings-page.active {
+
+    right:0;
+
+}
 
 
 .settings-page h2 {
 
-
     margin-bottom:25px;
-
 
 }
 
 
-
-
 .settings-page label {
-
 
     display:block;
 
@@ -1783,9 +1665,7 @@ body.dark-mode select {
 
     font-weight:500;
 
-
 }
-
 
 
 
@@ -1804,9 +1684,7 @@ body.dark-mode select {
 
     border-radius:8px;
 
-
 }
-
 
 
 
@@ -1815,55 +1693,35 @@ body.dark-mode select {
 ===================================== */
 
 
-#edit-avatar .avatar {
-
-
-    width:50px;
-
-    height:50px;
-
-    border-radius:50%;
-
-    background:#128c7e;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:25px;
-
-    color:white;
-
-    overflow:hidden;
-
-
-}
-
-
-
-
 .profile-section {
-
 
     text-align:center;
 
     margin-bottom:25px;
 
+}
+
+
+#edit-avatar {
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    object-fit:cover;
 
 }
 
 
 
-
 /* =====================================
-   CHECKBOX SWITCH
+   CHECKBOXES
 ===================================== */
 
 
 .settings-page input[type="checkbox"] {
-
 
     width:20px;
 
@@ -1871,19 +1729,16 @@ body.dark-mode select {
 
     cursor:pointer;
 
-
 }
 
 
 
-
 /* =====================================
-   SETTINGS SAVE BUTTON
+   SAVE BUTTONS
 ===================================== */
 
 
 .settings-save-btn {
-
 
     width:100%;
 
@@ -1899,224 +1754,11 @@ body.dark-mode select {
 
     font-size:16px;
 
-    cursor:pointer;
-
-
 }
-
-
 
 
 .settings-save-btn:hover {
 
-
     opacity:.9;
-
-
-}
-
-
-
-
-/* =====================================
-   MOBILE RESPONSIVE
-===================================== */
-
-
-@media(max-width:900px){
-
-
-    .chat-container {
-
-
-        width:100%;
-
-        height:100vh;
-
-        border-radius:0;
-
-
-    }
-
-
-
-    .sidebar {
-
-
-        width:90px;
-
-        padding:10px;
-
-
-    }
-
-
-
-    .contact-item {
-
-
-        font-size:12px;
-
-
-    }
-
-
-
-    .chat-layout {
-
-
-        height:calc(100vh - 75px);
-
-
-    }
-
-
-}
-
-
-
-
-@media(max-width:600px){
-
-
-    .auth-card {
-
-
-        width:90%;
-
-
-    }
-
-
-
-    .top-bar {
-
-
-        padding:10px;
-
-
-    }
-
-
-
-    .profile-area h2 {
-
-
-        font-size:16px;
-
-
-    }
-
-
-
-    .top-actions button {
-
-
-        width:35px;
-
-        height:35px;
-
-        font-size:14px;
-
-
-    }
-
-
-
-    .sidebar {
-
-
-        display:none;
-
-
-    }
-
-
-
-    .call-area {
-
-
-        width:95%;
-
-        height:220px;
-
-        right:2.5%;
-
-
-    }
-
-
-
-    #messages li {
-
-
-        max-width:90%;
-
-
-    }
-
-
-
-    .message-input-area input {
-
-
-        font-size:14px;
-
-
-    }
-
-
-
-    .settings-panel,
-
-    .settings-page {
-
-
-        width:100%;
-
-
-    }
-
-
-}
-
-
-
-
-@media(max-width:400px){
-
-
-    .top-actions {
-
-
-        gap:4px;
-
-
-    }
-
-
-
-    .top-actions button {
-
-
-        width:30px;
-
-        height:30px;
-
-
-    }
-
-
-
-    .send-btn {
-
-
-        width:38px;
-
-        height:38px;
-
-
-    }
-
 
 }
