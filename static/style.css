@@ -2060,8 +2060,6 @@ body.dark .modal-card {
 
 
 #edit-avatar{
-
-   .avatar{
     width:50px;
     height:50px;
     border-radius:50%;
@@ -2072,7 +2070,7 @@ body.dark .modal-card {
     font-size:25px;
     color:white;
     overflow:hidden;
-}
+
 }
 
 
