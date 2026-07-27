@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ChatMe</title>
+
+
+<link rel="stylesheet" href="/static/style.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="app-container">
+
+
+<!-- =========================
+AUTH PAGE
+========================= -->
+
+
+<section id="auth-page" class="auth-container">
+
+
+<div class="auth-card">
+
+
+<div class="app-logo">
+💬
+</div>
+
+
+<h1>
+ChatMe
+</h1>
+
+
+<p>
+Connect with friends instantly
+</p>
+
+
+
+
+<div class="input-group">
+
+<label>
+Username
+</label>
+
+<input
+id="username"
+type="text"
+placeholder="Username (register only)"
+>
+
+</div>
+
+
+
+
+
+<div class="input-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+id="phone"
+type="text"
+placeholder="Phone number"
+>
+
+</div>
+
+
+
+
+
+<div class="input-group">
+
+<label>
+Password
+</label>
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+>
+
+</div>
+
+
+
+
+
+<div class="auth-buttons">
+
+
+<button
+class="primary-btn"
+onclick="register()">
+
+Create Account
+
+</button>
+
+
+
+
+<button
+class="secondary-btn"
+onclick="login()">
+
+Login
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div id="authMessage"
+class="auth-message">
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =========================
+CHAT PAGE
+========================= -->
+
+
+<section id="chat-page"
+class="chat-container hidden">
+
+
+
+
+
+<header class="top-bar">
+
+
+
+<div class="profile-area">
+
+<div class="avatar">
+
+<img
+id="profile-picture"
+src="/static/default-avatar.png"
+alt="Profile">
+
+</div>
+
+
+<div class="profile-info">
+
+<h2>
+ChatMe
+</h2>
+
+<span id="status">
+Offline
+</span>
+
+
+<button 
+class="settings-btn"
+onclick="openSettings()">
+
+⚙️ Settings
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="top-actions">
+
+<button onclick="startAudioCall()" title="Audio Call">
+📞
+</button>
+
+<button onclick="startVideoCall()" title="Video Call">
+📹
+</button>
+
+<button onclick="createGroupCall()" title="Group Call">
+👥
+</button>
+
+<button onclick="toggleTheme()" title="Dark Mode">
+🌙
+</button>
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<div class="chat-layout">
+
+
+
+
+
+<!-- SIDEBAR -->
+
+
+<aside class="sidebar">
+
+
+<div class="search-box">
+
+
+<input
+id="receiver"
+type="text"
+placeholder="Search username"
+>
+
+
+</div>
+
+
+
+
+
+<button
+class="load-btn"
+onclick="loadMessages()">
+
+Load Conversation
+
+</button>
+
+
+
+
+
+<div class="contact-title">
+
+Contacts
+
+</div>
+
+
+
+
+<div id="contacts">
+
+
+<div class="contact-item">
+
+🟢 Online Users
+
+</div>
+
+
+</div>
+
+
+
+</aside>
+
+
+
+
+
+
+
+
+
+<!-- CHAT AREA -->
+
+
+<main class="chat-window">
+
+
+
+
+
+<div class="conversation-header">
+
+
+<div>
+
+<h3 id="chatUser">
+
+Select User
+
+</h3>
+
+
+<span id="typing">
+
+</span>
+
+</div>
+
+
+
+<span id="encryption-status">
+
+🔒 End-to-End Encrypted
+
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="message-area">
+
+
+<ul id="messages">
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- CALL AREA -->
+
+
+<div id="call-area"
+class="call-area hidden">
+
+
+<div class="video-box">
+
+
+<video
+id="localVideo"
+autoplay
+muted>
+</video>
+
+
+<span>
+You
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="video-box">
+
+
+<video
+id="remoteVideo"
+autoplay>
+</video>
+
+
+<span>
+Remote
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- MESSAGE INPUT -->
+
+
+<div class="message-input-area">
+
+
+
+
+
+<label class="attach-btn">
+
+📎
+
+
+<input
+id="file"
+type="file"
+hidden
+accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.txt"
+onchange="uploadFile()"
+>
+
+
+</label>
+
+
+
+
+
+
+
+<button
+class="emoji-btn"
+onclick="toggleEmoji()">
+
+😊
+
+</button>
+
+
+
+
+
+
+
+<input
+id="message"
+type="text"
+placeholder="Type a message..."
+onkeypress="enterSend(event)"
+>
+
+
+
+
+
+
+
+<button
+class="send-btn"
+onclick="sendMessage()">
+
+➤
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- EMOJI PANEL -->
+
+
+<div id="emoji-panel"
+class="emoji-panel hidden">
+
+
+<button onclick="addEmoji('😀')">
+😀
+</button>
+
+
+<button onclick="addEmoji('😂')">
+😂
+</button>
+
+
+<button onclick="addEmoji('❤️')">
+❤️
+</button>
+
+
+<button onclick="addEmoji('👍')">
+👍
+</button>
+
+
+<button onclick="addEmoji('🔥')">
+🔥
+</button>
+
+
+<button onclick="addEmoji('😍')">
+😍
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- FILE PREVIEW -->
+
+
+<div id="file-preview"
+class="file-preview hidden">
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- GROUP CALL MODAL -->
+
+
+<div id="group-call-modal"
+class="modal hidden">
+
+
+
+<div class="modal-card">
+
+
+<h3>
+Group Call
+</h3>
+
+
+
+<input
+id="roomId"
+type="text"
+placeholder="Room ID"
+>
+
+
+
+
+
+<button onclick="joinGroupCall()">
+
+Join Room
+
+</button>
+
+
+
+
+
+<button onclick="closeModal()">
+
+Close
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+<!-- =====================================
+SETTINGS PANEL
+===================================== -->
+
+<div id="settings-panel"
+class="settings-panel hidden">
+
+<div class="settings-header">
+
+<h2>
+Settings
+</h2>
+
+<button onclick="closeSettings()">
+✖
+</button>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="settings-profile">
+
+<img
+id="settings-avatar"
+src="/static/default-avatar.png">
+
+<h3 id="settings-name">
+Username
+</h3>
+
+<p id="settings-bio">
+No bio yet.
+</p>
+
+<label
+class="profile-upload">
+
+📷 Change Profile Picture
+
+<input
+
+id="profile-upload"
+
+type="file"
+
+accept="image/*"
+
+hidden
+
+onchange="uploadProfilePicture()">
+
+</label>
+
+</div>
+
+
+<div class="settings-list">
+
+<button onclick="openProfileSettings()">
+👤 Profile
+</button>
+
+<button onclick="openPrivacySettings()">
+🔒 Privacy
+</button>
+
+<button onclick="openNotificationSettings()">
+🔔 Notifications
+</button>
+
+<button onclick="openAppearanceSettings()">
+🌙 Appearance
+</button>
+
+<button onclick="openStorageSettings()">
+☁ Storage
+</button>
+
+<button onclick="openAccountSettings()">
+🔑 Account
+</button>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
+
+</div>
+
+</div>
+<div
+id="profile-page"
+class="settings-page hidden">
+
+<h2>
+
+My Profile
+
+</h2>
+
+<div class="profile-section">
+
+<img
+
+id="edit-avatar"
+
+src="/static/default-avatar.png">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Username
+
+</label>
+
+<input
+
+id="edit-username"
+
+type="text">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Bio
+
+</label>
+
+<textarea
+
+id="edit-bio"
+
+rows="4">
+
+</textarea>
+
+</div>
+
+<button
+class="primary-btn"
+onclick="saveProfile()">
+
+Save Changes
+
+</button>
+
+</div>
+ <div
+id="privacy-page"
+class="settings-page hidden">
+
+<h2>
+
+Privacy
+
+</h2>
+
+<label>
+
+Last Seen
+
+</label>
+
+<select id="last-seen">
+
+<option>Everyone</option>
+
+<option>Contacts</option>
+
+<option>Nobody</option>
+
+</select>
+
+<label>
+
+Online Status
+
+</label>
+
+<select id="online-status">
+
+<option>Everyone</option>
+
+<option>Contacts</option>
+
+<option>Nobody</option>
+
+</select>
+
+<label>
+
+Profile Picture
+
+</label>
+
+<select id="profile-privacy">
+
+<option>Everyone</option>
+
+<option>Contacts</option>
+
+<option>Nobody</option>
+
+</select>
+
+<label>
+
+Read Receipts
+
+</label>
+
+<input
+id="read-receipts"
+type="checkbox"
+checked>
+
+<label>
+
+Typing Indicator
+
+</label>
+
+<input
+id="typing-status"
+type="checkbox"
+checked>
+
+<button
+class="primary-btn"
+onclick="savePrivacy()">
+
+Save
+
+</button>
+
+</div> 
+<div
+id="notification-page"
+class="settings-page hidden">
+
+<h2>
+
+Notifications
+
+</h2>
+
+<label>
+
+Message Notifications
+
+</label>
+
+<input
+id="message-notifications"
+type="checkbox"
+checked>
+
+<label>
+
+Call Notifications
+
+</label>
+
+<input
+id="call-notifications"
+type="checkbox"
+checked>
+
+<label>
+
+Group Notifications
+
+</label>
+
+<input
+id="group-notifications"
+type="checkbox"
+checked>
+
+<button
+class="primary-btn"
+onclick="saveNotifications()">
+
+Save
+
+</button>
+
+</div>
+<div
+id="appearance-page"
+class="settings-page hidden">
+
+<h2>
+
+Appearance
+
+</h2>
+
+<label>
+
+Dark Mode
+
+</label>
+
+<input
+id="dark-mode"
+type="checkbox">
+
+<label>
+
+Chat Wallpaper
+
+</label>
+
+<input
+
+id="wallpaper"
+
+type="file"
+
+accept="image/*">
+
+<button
+class="primary-btn"
+onclick="saveAppearance()">
+
+Save
+
+</button>
+
+</div>
+
+ <div
+id="account-page"
+class="settings-page hidden">
+
+<h2>
+
+Account
+
+</h2>
+
+<button onclick="changePassword()">
+
+🔑 Change Password
+
+</button>
+
+<button onclick="exportData()">
+
+📁 Export Data
+
+</button>
+
+<button onclick="deleteAccount()">
+
+🗑 Delete Account
+
+</button>
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+</div>
+ 
+<script src="/static/app.js"></script>
+
+
+</body>
+
+
+</html>
