@@ -493,6 +493,50 @@ def register_user(
     password
 ):
 
+    existing_user = get_user_by_phone(
+        phone
+    )
+
+    if existing_user:
+
+        return {
+
+            "status":"error",
+
+            "message":
+            "Phone number already registered"
+
+        }
+
+
+    password_hash = hash_password(
+        password
+    )
+
+
+    user_id = create_user(
+
+        username,
+
+        phone,
+
+        password_hash
+
+    )
+
+
+    return {
+
+        "status":"success",
+
+        "message":
+        "Account created successfully",
+
+        "user_id":
+        user_id
+
+    }
+
 
 
 
