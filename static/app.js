@@ -276,6 +276,41 @@ async function login(){
 
 
 }
+// =====================================
+// RESTORE USER SESSION
+// =====================================
+
+function restoreSession(){
+
+
+    const savedToken =
+    localStorage.getItem(
+        "chatme_token"
+    );
+
+
+    const savedUsername =
+    localStorage.getItem(
+        "chatme_username"
+    );
+
+
+
+    if(savedToken && savedUsername){
+
+
+        token = savedToken;
+
+        username = savedUsername;
+
+
+        openChat();
+
+
+    }
+
+}
+
 
 
 
