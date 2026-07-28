@@ -484,9 +484,11 @@ function connectSocket(){
 
 
     socket =
-    new WebSocket(
-
-        `${WS_URL}/ws/${username}`
+    @app.websocket("/ws/{username}")
+    async def websocket_endpoint(
+       websocket:WebSocket,
+       username:str
+):`
 
     );
 
