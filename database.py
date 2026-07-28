@@ -105,23 +105,23 @@ def initialize_database():
 """)
 
     cursor.execute("""
+       ALTER TABLE users
+       ADD COLUMN online_privacy TEXT DEFAULT 'everyone'
+""")
+
+    cursor.execute("""
       ALTER TABLE users
-      ADD COLUMN online_privacy TEXT DEFAULT 'everyone'
+      ADD COLUMN photo_privacy TEXT DEFAULT 'everyone'
 """)
 
-   cursor.execute("""
-     ALTER TABLE users
-     ADD COLUMN photo_privacy TEXT DEFAULT 'everyone'
+    cursor.execute("""
+      ALTER TABLE users
+      ADD COLUMN read_receipts INTEGER DEFAULT 1
 """)
 
-   cursor.execute("""
-     ALTER TABLE users
-     ADD COLUMN read_receipts INTEGER DEFAULT 1
-""")
-
-   cursor.execute("""
-     ALTER TABLE users
-     ADD COLUMN bio_privacy TEXT DEFAULT 'everyone'
+    cursor.execute("""
+      ALTER TABLE users
+      ADD COLUMN bio_privacy TEXT DEFAULT 'everyone'
 """)
     
 
