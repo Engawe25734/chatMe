@@ -25,6 +25,12 @@ from auth import (
     unlock_app
 )
 
+from models import (
+    SetPinRequest,
+    UnlockPinRequest,
+    DisablePinRequest
+)
+
 from fastapi import Body
 
 from notifications import register_device
