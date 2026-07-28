@@ -322,7 +322,99 @@ async function registerDevice(token){
 
 }
 
+// =====================================
+// APP LOCK
+// =====================================
 
+let appLocked = false;
+
+let currentUserId = null;
+Now add this function:
+// =====================================
+// UNLOCK APP
+// =====================================
+
+
+async function unlockApp(){
+
+
+    const pin = document
+    .getElementById("unlock-pin")
+    .value;
+
+
+    const response = await fetch(
+
+        `${API_URL}/security/unlock`,
+
+        {
+
+            method:"POST",
+
+            headers:{
+
+                "Content-Type":
+                "application/json"
+
+            },
+
+
+            body:JSON.stringify({
+
+                user_id:currentUserId,
+
+                pin:pin
+
+            })
+
+        }
+
+    );
+
+
+
+    const data = await response.json();
+
+
+
+    if(data.success){
+
+
+        document
+
+        .getElementById(
+            "app-lock-screen"
+        )
+
+        .classList
+
+        .add("hidden");
+
+
+
+        appLocked=false;
+
+
+    }
+
+    else{
+
+
+        document
+
+        .getElementById(
+            "unlock-message"
+        )
+
+        .innerHTML=
+
+        "Wrong PIN";
+
+
+    }
+
+
+}
 
 
 
