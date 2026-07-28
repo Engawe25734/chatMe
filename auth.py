@@ -253,7 +253,7 @@ def authenticate_user(
     return user
 
 
-
+    
 
 
 
@@ -366,7 +366,132 @@ def verify_token(
         return None
 
 
+# =====================================
+# SAVE APP PIN
+# =====================================
 
+def set_app_pin(
+    user_id,
+    pin
+):
+
+    pin_hash = hash_pin(pin)
+
+    update_user_pin(
+        user_id,
+        pin_hash
+    )
+
+    enable_app_lock(
+        user_id,
+        True
+    )
+
+    return {
+        "status": "success",
+        "message": "App lock enabled"
+    }
+
+
+# =====================================
+# VERIFY APP PIN
+# =====================================
+
+def unlock_app(
+    user_id,
+    pin
+):
+
+    data = get_user_pin(user_id)
+
+    if not data:
+        return False
+
+    pin_hash = data["pin_hash"]
+    enabled = data["app_lock"]
+
+    if enabled == 0:
+        return True
+
+    if not pin_hash:
+        return False
+
+    return verify_pin(
+        pin,
+        pin_hash
+    )
+
+# =====================================
+# APP LOCK PIN
+# =====================================
+
+def hash_pin(pin: str):
+    """
+    Encrypt PIN before saving
+    """
+    return password_context.hash(pin)
+
+
+def verify_pin(pin, pin_hash):
+    """
+    Verify entered PIN
+    """
+    return password_context.verify(
+        pin,
+        pin_hash
+    )
+
+
+# ------------------------------------
+# Password functions
+# ------------------------------------
+
+def hash_password(password: str):
+
+    return password_context.hash(password)
+
+
+def verify_password(
+    plain_password,
+    hashed_password
+):
+
+    return password_context.verify(
+        plain_password,
+        hashed_password
+    )
+
+
+# =====================================
+# APP LOCK PIN
+# =====================================
+
+def hash_pin(pin: str):
+    """
+    Encrypt PIN before saving
+    """
+    return password_context.hash(pin)
+
+
+def verify_pin(pin, pin_hash):
+    """
+    Verify entered PIN
+    """
+    return password_context.verify(
+        pin,
+        pin_hash
+    )
+
+
+# ------------------------------------
+# User registration
+# ------------------------------------
+
+def register_user(
+    username,
+    phone,
+    password
+):
 
 
 
