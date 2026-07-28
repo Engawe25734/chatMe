@@ -144,7 +144,29 @@ class AddGroupMemberRequest(BaseModel):
 
     user_id: int
 
+# =====================================
+# APP LOCK MODELS
+# =====================================
 
+class SetPinRequest(BaseModel):
+
+    user_id: int
+
+    pin: str
+
+
+
+class UnlockPinRequest(BaseModel):
+
+    user_id: int
+
+    pin: str
+
+
+
+class DisablePinRequest(BaseModel):
+
+    user_id: int
 
 # ------------------------------------
 # Local Sync Request
