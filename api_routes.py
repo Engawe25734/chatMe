@@ -322,6 +322,37 @@ def update_privacy(
         "status":"privacy updated"
 
     }
+    
+#==================================
+# PRIVACY CONTROLS
+#===================================
+@router.post("/privacy/update")
+def update_privacy(data:dict):
+
+    update_privacy_settings(
+
+        data["username"],
+
+        data["last_seen"],
+
+        data["online"],
+
+        data["photo"],
+
+        data["read_receipts"],
+
+        data["bio"]
+
+    )
+
+
+    return {
+
+        "success":True,
+
+        "message":"Privacy updated"
+
+    }
 
 # =====================================
 # UPDATE NOTIFICATION SETTINGS
