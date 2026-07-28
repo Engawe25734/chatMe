@@ -19,13 +19,12 @@ from passlib.context import CryptContext
 from jose import jwt, JWTError
 
 
-
 from database import (
-
     create_user,
-
-    get_user_by_phone
-
+    get_user_by_phone,
+    update_user_pin,
+    enable_app_lock,
+    get_user_pin
 )
 
 
