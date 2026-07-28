@@ -53,7 +53,8 @@ from notifications import (
 from auth import (
     register_user,
     authenticate_user,
-    create_access_token
+    create_access_token,
+    verify_token
 )
 
 
@@ -61,13 +62,6 @@ from models import (
     RegisterRequest,
     LoginRequest
 )
-from auth import verify_token(
- playload = verify_token(token)
- if not playload:
-     await websocket.close()
-     return
-     )
-
 from websocket_manager import manager
 
 
