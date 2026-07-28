@@ -1075,8 +1075,28 @@ function toggleTheme(){
 
 }
 
+//============================
+//APP LOCK
+//============================
+
+function lockApp(){
 
 
+    document
+
+    .getElementById(
+        "app-lock-screen"
+    )
+
+    .classList
+
+    .remove("hidden");
+
+
+    appLocked=true;
+
+
+}
 
 
 
