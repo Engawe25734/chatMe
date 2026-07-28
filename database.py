@@ -76,61 +76,61 @@ def initialize_database():
 
 
 
-   # =====================================
-# USERS TABLE
-# =====================================
+    # =====================================
+    # USERS TABLE
+    # =====================================
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS users (
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
 
-   id INTEGER PRIMARY KEY AUTOINCREMENT,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-   username TEXT UNIQUE,
+       username TEXT UNIQUE,
 
-   phone TEXT UNIQUE,
+       phone TEXT UNIQUE,
 
-   password_hash TEXT,
+       password_hash TEXT,
 
-   avatar TEXT DEFAULT '/static/default-avatar.png',
+       avatar TEXT DEFAULT '/static/default-avatar.png',
 
-   bio TEXT DEFAULT '',
+       bio TEXT DEFAULT '',
 
-   pin_hash TEXT DEFAULT '',
+       pin_hash TEXT DEFAULT '',
 
-   app_lock INTEGER DEFAULT 0
+       app_lock INTEGER DEFAULT 0
 
-)""")
-
-
-cursor.execute("""
-   ALTER TABLE users
-   ADD COLUMN last_seen_privacy TEXT DEFAULT 'everyone'
-""")
+    )""")
 
 
-cursor.execute("""
-   ALTER TABLE users
-   ADD COLUMN online_privacy TEXT DEFAULT 'everyone'
-""")
+    cursor.execute("""
+       ALTER TABLE users
+       ADD COLUMN last_seen_privacy TEXT DEFAULT 'everyone'
+    """)
 
 
-cursor.execute("""
-   ALTER TABLE users
-   ADD COLUMN photo_privacy TEXT DEFAULT 'everyone'
-""")
+    cursor.execute("""
+       ALTER TABLE users
+       ADD COLUMN online_privacy TEXT DEFAULT 'everyone'
+    """)
 
 
-cursor.execute("""
-   ALTER TABLE users
-   ADD COLUMN read_receipts INTEGER DEFAULT 1
-""")
+    cursor.execute("""
+       ALTER TABLE users
+       ADD COLUMN photo_privacy TEXT DEFAULT 'everyone'
+    """)
 
 
-cursor.execute("""
-   ALTER TABLE users
-   ADD COLUMN bio_privacy TEXT DEFAULT 'everyone'
-""")
-    
+    cursor.execute("""
+       ALTER TABLE users
+       ADD COLUMN read_receipts INTEGER DEFAULT 1
+    """)
+
+
+    cursor.execute("""
+       ALTER TABLE users
+       ADD COLUMN bio_privacy TEXT DEFAULT 'everyone'
+    """)
+
 
     # =====================================
     # PUBLIC KEY TABLE
@@ -151,10 +151,11 @@ cursor.execute("""
 
     )
     """)
+
+
     # =====================================
     # PRIVATE CHAT TABLE
     # =====================================
-
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS chats(
@@ -167,11 +168,9 @@ cursor.execute("""
 
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-
         FOREIGN KEY(user_one)
 
         REFERENCES users(id),
-
 
         FOREIGN KEY(user_two)
 
@@ -179,11 +178,6 @@ cursor.execute("""
 
     )
     """)
-
-  
-
-
-
     # =====================================
     # PRIVATE MESSAGE TABLE
     # =====================================
