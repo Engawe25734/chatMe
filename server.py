@@ -29,7 +29,7 @@ from fastapi.staticfiles import StaticFiles
 
 from fastapi.templating import Jinja2Templates
 from api_routes import router
-
+from auth import verify_token
 from fastapi.middleware.cors import CORSMiddleware
 
 
