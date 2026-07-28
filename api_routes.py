@@ -19,6 +19,12 @@ from fastapi import (
     HTTPException,
     Body
 )
+
+from auth import (
+    set_app_pin,
+    unlock_app
+)
+
 from fastapi import Body
 
 from notifications import register_device
