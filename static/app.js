@@ -217,7 +217,7 @@ async function login(){
             username =
             data.username;
 
-
+            currentUserId = data.user_id;
 
             token =
             data.access_token;
