@@ -76,52 +76,59 @@ def initialize_database():
 
 
 
-    # =====================================
-    # USERS TABLE
-    # =====================================
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
+   # =====================================
+# USERS TABLE
+# =====================================
 
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS users (
 
-       username TEXT UNIQUE,
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-       phone TEXT UNIQUE,
+   username TEXT UNIQUE,
 
-       password_hash TEXT,
+   phone TEXT UNIQUE,
 
-       avatar TEXT DEFAULT '/static/default-avatar.png',
+   password_hash TEXT,
 
-       bio TEXT DEFAULT '',
+   avatar TEXT DEFAULT '/static/default-avatar.png',
 
-       pin_hash TEXT DEFAULT '',
+   bio TEXT DEFAULT '',
 
-       app_lock INTEGER DEFAULT 0
+   pin_hash TEXT DEFAULT '',
+
+   app_lock INTEGER DEFAULT 0
 
 )""")
-     cursor.execute("""
-       ALTER TABLE users
-       ADD COLUMN last_seen_privacy TEXT DEFAULT 'everyone'
+
+
+cursor.execute("""
+   ALTER TABLE users
+   ADD COLUMN last_seen_privacy TEXT DEFAULT 'everyone'
 """)
 
-    cursor.execute("""
-       ALTER TABLE users
-       ADD COLUMN online_privacy TEXT DEFAULT 'everyone'
+
+cursor.execute("""
+   ALTER TABLE users
+   ADD COLUMN online_privacy TEXT DEFAULT 'everyone'
 """)
 
-    cursor.execute("""
-      ALTER TABLE users
-      ADD COLUMN photo_privacy TEXT DEFAULT 'everyone'
+
+cursor.execute("""
+   ALTER TABLE users
+   ADD COLUMN photo_privacy TEXT DEFAULT 'everyone'
 """)
 
-    cursor.execute("""
-      ALTER TABLE users
-      ADD COLUMN read_receipts INTEGER DEFAULT 1
+
+cursor.execute("""
+   ALTER TABLE users
+   ADD COLUMN read_receipts INTEGER DEFAULT 1
 """)
 
-    cursor.execute("""
-      ALTER TABLE users
-      ADD COLUMN bio_privacy TEXT DEFAULT 'everyone'
+
+cursor.execute("""
+   ALTER TABLE users
+   ADD COLUMN bio_privacy TEXT DEFAULT 'everyone'
 """)
     
 
