@@ -499,72 +499,8 @@ function openChat(){
 
 }
 
-//===================================
-//save privacy
-//=====================================
-async function savePrivacy(){
 
 
-await fetch(
-
-`${API_URL}/privacy/update`,
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":
-"application/json"
-
-},
-
-
-body:JSON.stringify({
-
-username:username,
-
-last_seen:
-document.getElementById(
-"last-seen"
-).value,
-
-
-online:
-document.getElementById(
-"online-status"
-).value,
-
-
-photo:
-document.getElementById(
-"photo-privacy"
-).value,
-
-
-read_receipts:
-document.getElementById(
-"read-receipts"
-).checked ? 1:0,
-
-
-bio:"everyone"
-
-
-})
-
-}
-
-);
-
-
-alert(
-"Privacy settings saved"
-);
-
-
-}
 // =====================================
 // WEBSOCKET CONNECTION
 // Matches server.py
@@ -2630,16 +2566,27 @@ function saveAppearance(){
 // LOGOUT
 // =====================================
 
+
 function logout(){
 
-    localStorage.removeItem(
-        "access_token"
-    );
 
     localStorage.removeItem(
-        "username"
+        "chatme_token"
     );
 
-    window.location.reload();
+
+    localStorage.removeItem(
+        "chatme_username"
+    );
+
+
+    if(socket){
+
+        socket.close();
+
+    }
+
+
+    location.reload();
 
 }
