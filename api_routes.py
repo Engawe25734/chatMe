@@ -780,6 +780,77 @@ def save_file_attachment(
 
     }
 
+# =====================================
+# ENABLE APP LOCK
+# =====================================
+
+@router.post("/security/set-pin")
+def set_pin(
+    data:SetPinRequest
+):
+
+    return set_app_pin(
+
+        data.user_id,
+
+        data.pin
+
+    )
+
+
+
+# =====================================
+# UNLOCK APP
+# =====================================
+
+@router.post("/security/unlock")
+def unlock(
+    data:UnlockPinRequest
+):
+
+    result = unlock_app(
+
+        data.user_id,
+
+        data.pin
+
+    )
+
+
+    return {
+
+        "success":result
+
+    }
+
+
+
+# =====================================
+# DISABLE APP LOCK
+# =====================================
+
+@router.post("/security/disable-pin")
+def disable_pin(
+    data:DisablePinRequest
+):
+
+    enable_app_lock(
+
+        data.user_id,
+
+        False
+
+    )
+
+
+    return {
+
+        "status":"success",
+
+        "message":"App lock disabled"
+
+    }
+
 
 
 
