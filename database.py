@@ -136,71 +136,59 @@ CREATE TABLE IF NOT EXISTS user_keys(
 
 
 
-# =====================================
-# PRIVATE CHAT TABLE
-# =====================================
+def initialize_database():
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS chats(
+    conn = sqlite3.connect(DB_NAME)
 
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-    user_one INTEGER NOT NULL,
-
-    user_two INTEGER NOT NULL,
-
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    cursor = conn.cursor()
 
 
-    FOREIGN KEY(user_one)
-
-    REFERENCES users(id),
-
-
-    FOREIGN KEY(user_two)
-
-    REFERENCES users(id)
-
-)
-""")
     # =====================================
-    # PRIVATE MESSAGE TABLE
+    # PUBLIC KEY TABLE
     # =====================================
-
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS messages(
+    CREATE TABLE IF NOT EXISTS user_keys(
 
         id INTEGER PRIMARY KEY AUTOINCREMENT,
 
+        username TEXT UNIQUE,
 
-        chat_id INTEGER NOT NULL,
+        public_key TEXT,
 
+        FOREIGN KEY(username)
 
-        sender_id INTEGER NOT NULL,
+        REFERENCES users(username)
 
-
-        message TEXT,
-
-
-        message_type TEXT DEFAULT 'text',
-
-
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    )
+    """)
 
 
-        FOREIGN KEY(chat_id)
+    # =====================================
+    # PRIVATE CHAT TABLE
+    # =====================================
 
-        REFERENCES chats(id),
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS chats(
 
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-        FOREIGN KEY(sender_id)
+        user_one INTEGER NOT NULL,
+
+        user_two INTEGER NOT NULL,
+
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+        FOREIGN KEY(user_one)
+
+        REFERENCES users(id),
+
+        FOREIGN KEY(user_two)
 
         REFERENCES users(id)
 
     )
     """)
-
 
 
 
