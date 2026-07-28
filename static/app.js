@@ -724,6 +724,65 @@ socket.send(
 
 }
 
+//==============================
+//function verify app
+//==============================
+async function verifyAppPin(){
+
+
+    const pin =
+    document
+    .getElementById("unlock-pin")
+    .value;
+
+
+
+    const response =
+    await fetch(
+        `${API_URL}/verify-pin`,
+        {
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+
+            body:JSON.stringify({
+
+                username:username,
+
+                pin:pin
+
+            })
+
+        }
+    );
+
+
+
+    const result =
+    await response.json();
+
+
+
+    if(result.success){
+
+        unlockApp();
+
+    }
+
+    else{
+
+        alert(
+            "Wrong PIN"
+        );
+
+
+    }
+
+}
 
 // =====================================
 // CHATME NOTIFICATIONS
