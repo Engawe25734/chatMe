@@ -79,55 +79,28 @@ def initialize_database():
     # =====================================
     # USERS TABLE
     # =====================================
-
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users(
+    CREATE TABLE IF NOT EXISTS users (
 
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-        username TEXT UNIQUE NOT NULL,
+       username TEXT UNIQUE,
 
-        phone TEXT UNIQUE NOT NULL,
+       phone TEXT UNIQUE,
 
-        password_hash TEXT NOT NULL,
+       password_hash TEXT,
 
-        online INTEGER DEFAULT 0,
+       avatar TEXT DEFAULT '/static/default-avatar.png',
 
-        last_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
+       bio TEXT DEFAULT '',
 
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+       pin_hash TEXT DEFAULT '',
 
-    )
-    """)
+       app_lock INTEGER DEFAULT 0
 
+)""")
 
-    cursor.execute(
-        "PRAGMA table_info(users)"
-    )
-
-    columns = [
-
-        column[1]
-
-        for column in cursor.fetchall()
-
-    ]
-
-
-    if "avatar" not in columns:
-
-        cursor.execute("""
-        ALTER TABLE users
-        ADD COLUMN avatar TEXT DEFAULT '/static/default-avatar.png'
-        """)
-
-
-    if "bio" not in columns:
-
-        cursor.execute("""
-        ALTER TABLE users
-        ADD COLUMN bio TEXT DEFAULT ''
-        """)
+    
 
     # =====================================
     # PUBLIC KEY TABLE
@@ -177,7 +150,7 @@ def initialize_database():
     )
     """)
 
-
+  
 
 
 
