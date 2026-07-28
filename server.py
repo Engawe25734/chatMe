@@ -28,7 +28,7 @@ from fastapi import Request
 from fastapi.staticfiles import StaticFiles
 
 from fastapi.templating import Jinja2Templates
-
+from api_routes import router
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -61,12 +61,14 @@ from models import (
     RegisterRequest,
     LoginRequest
 )
-
+from auth import verify_token(
+ playload = verify_token(token)
+ if not playload:
+     await websocket.close()
+     return
+     )
 
 from websocket_manager import manager
-
-
-from api_routes import router
 
 
 from file_manager import (
@@ -301,7 +303,8 @@ def login(
         "token_type":"bearer",
 
 
-        "username":account["username"]
+        "username":account["username"],
+        "app_lock":account["app_lock"]
 
     }
 
@@ -507,6 +510,7 @@ async def websocket_endpoint(
     websocket: WebSocket,
 
     username: str
+    token:str
 
 ):
 
