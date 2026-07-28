@@ -212,40 +212,41 @@ async function login(){
 
         if(response.ok){
 
+          const data = await response.json();
 
 
-            username =
-            data.username;
+          username = data.username;
 
-            currentUserId = data.user_id;
-
-            token =
-            data.access_token;
+          token = data.access_token;
 
 
 
+       // CHECK APP LOCK SETTING
 
-            localStorage.setItem(
-
-                "username",
-
-                username
-
-            );
+          if(data.app_lock === 1){
 
 
-
-            localStorage.setItem(
-
-                "access_token",
-
-                token
-
-            );
+          document
+          .getElementById("app-lock-screen")
+          .classList
+          .remove("hidden");
 
 
+          appLocked = true;
 
-            openChat();
+
+    }
+
+    else{
+
+
+        openChat();
+
+
+    }
+
+
+}
 
 
 
