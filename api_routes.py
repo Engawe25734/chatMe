@@ -32,7 +32,7 @@ from models import (
 )
 
 from fastapi import Body
-
+from database import enable_app_lock
 from notifications import register_device
 
 import os
