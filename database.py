@@ -69,16 +69,7 @@ def get_connection():
 
 def initialize_database():
 
-
     conn = get_connection()
-
-    cursor = conn.cursor()
-
-
-
-def initialize_database():
-
-    conn = sqlite3.connect(DB_NAME)
 
     cursor = conn.cursor()
 
@@ -118,37 +109,6 @@ def initialize_database():
 
     )
     """)
-
-
-
-
-# =====================================
-# PUBLIC KEY TABLE
-# =====================================
-
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS user_keys(
-
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-
-    username TEXT UNIQUE,
-
-    public_key TEXT,
-
-    FOREIGN KEY(username)
-
-    REFERENCES users(username)
-
-)
-""")
-
-
-
-def initialize_database():
-
-    conn = sqlite3.connect(DB_NAME)
-
-    cursor = conn.cursor()
 
 
     # =====================================
@@ -198,6 +158,10 @@ def initialize_database():
     )
     """)
 
+
+    conn.commit()
+
+    conn.close()
 
 
 
