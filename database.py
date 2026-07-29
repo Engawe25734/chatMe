@@ -158,6 +158,37 @@ def initialize_database():
     )
     """)
 
+    # =====================================
+    # MESSAGES TABLE
+    # =====================================
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS messages(
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        chat_id INTEGER,
+
+        sender_id INTEGER,
+
+        message TEXT,
+
+        message_type TEXT DEFAULT 'text',
+
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+
+        FOREIGN KEY(chat_id)
+
+        REFERENCES chats(id),
+
+
+        FOREIGN KEY(sender_id)
+
+        REFERENCES users(id)
+
+    )
+    """)
 
 
     # =====================================
