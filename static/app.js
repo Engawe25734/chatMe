@@ -367,7 +367,6 @@ async function registerDevice(token){
 let appLocked = false;
 
 let currentUserId = null;
-Now add this function:
 // =====================================
 // UNLOCK APP
 // =====================================
