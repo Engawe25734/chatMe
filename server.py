@@ -298,7 +298,8 @@ def login(
 
 
         "username":account["username"],
-        "app_lock":account["app_lock"]
+        "app_lock":account["app_lock"],
+        "user_id": account["id"]
 
     }
 
