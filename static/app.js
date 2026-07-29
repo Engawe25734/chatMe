@@ -424,9 +424,7 @@ async function unlockApp(){
             "app-lock-screen"
         )
 
-        .classList
-
-        .add("hidden");
+        .classList.add("hidden");
 
 
 
