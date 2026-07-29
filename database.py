@@ -159,11 +159,6 @@ def initialize_database():
     """)
 
 
-    conn.commit()
-
-    conn.close()
-
-
 
     # =====================================
     # ATTACHMENTS TABLE
@@ -466,9 +461,6 @@ def initialize_database():
     )
     """)
     
-# =====================================
-# PROFILE SETTINGS TABLE
-# =====================================
 
 
     # =====================================
