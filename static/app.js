@@ -204,20 +204,29 @@ async function login(){
 
 
 
-        const data =
-        await response.json();
-
-
+        const data = await response.json();
 
 
         if(response.ok){
 
-          const data = await response.json();
+           username = data.username;
 
+           token = data.access_token;
 
-          username = data.username;
+           localStorage.setItem(
+           "chatme_username",
+           username
+    );
 
-          token = data.access_token;
+    localStorage.setItem(
+        "chatme_token",
+        token
+    );
+
+    localStorage.setItem(
+        "chatme_token",
+        token
+    );
 
 
 
