@@ -254,14 +254,7 @@ async function login(){
 
     }
 
-
-}
-
-
-
-        }
-
-        else{
+    }else{
 
 
             document
