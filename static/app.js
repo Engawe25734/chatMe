@@ -17,9 +17,9 @@ Features:
 // =====================================
 // CONFIGURATION
 // =====================================
-const API_URL = "http://localhost:8000";
-const WS_URL = "ws://localhost:8000";
+const API_URL = "http://192.168.12.228:8000";
 
+const WS_URL = "ws://192.168.12.228:8000";
 
 
 let username =
@@ -519,32 +519,22 @@ function openChat(){
 
 function connectSocket(){
 
-
-
-    socket =
-    @app.websocket("/ws/{username}")
-    async def websocket_endpoint(
-       websocket:WebSocket,
-       username:str
-);
-
-
-
+    socket = new WebSocket(
+        `${WS_URL}/ws/${username}`
+    );
 
 
     socket.onopen=function(){
-
 
         console.log(
             "ChatMe connected"
         );
 
-
-
         document
         .getElementById("status")
-        .innerText =
-        "Online";
+        .innerText="Online";
+
+    };
 
 
     };
