@@ -21,7 +21,10 @@ Features:
 
 
 import sqlite3
+import os
 
+print("DATABASE PATH:")
+print(os.path.abspath("chat.db"))
 
 
 DATABASE_FILE = "chat.db"
