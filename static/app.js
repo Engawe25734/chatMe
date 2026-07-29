@@ -510,7 +510,7 @@ function openChat(){
 function connectSocket(){
 
     socket = new WebSocket(
-        `${WS_URL}/ws/${encodeURIComponent(username)}`
+        `${WS_URL}/ws/${encodeURIComponent(username)}?token=${token}`
     );
 
 
