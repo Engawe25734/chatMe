@@ -527,12 +527,6 @@ function connectSocket(){
     };
 
 
-    };
-
-
-
-
-
 
     socket.onmessage = async function(event) {
 
