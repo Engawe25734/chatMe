@@ -658,7 +658,7 @@ function connectSocket(){
 
     };
 
-
+}
 // =====================================
 // SEND MESSAGE
 // WebSocket message
